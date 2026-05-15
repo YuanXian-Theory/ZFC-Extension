@@ -1,40 +1,54 @@
 # ZFC-Extension
 
-# ZFC-Extension: Ontological Extension of ZFC for YuanXian Theory
+**Ontological Extension of ZFC for YuanXian Theory (YXT)**
 
-**Formal Foundations of Self-Referential Mind Field and Reconstruction of YuanXian Axioms**
+Formalization of the Self-Referential Mind Field, 64-dimensional torus T⁶⁴, and the core axioms of YuanXian Theory in Lean 4.
 
-This repository contains the complete formalization of the ontological extension of Zermelo-Fraenkel Set Theory (ZFC) developed for **YuanXian Theory (YXT)**.
+---
 
-## Core Contributions
+## Core Objectives
 
-- Rigorous set-theoretic definitions of `SelfReferentialMindField`, `T⁶⁴`, and `UniverseFactor`
-- Formal reconstruction of the Four YuanXian Axioms in ZFC
-- Lean 4 axiomatic formalization
-- Machine-verifiable mathematical foundation
+- Provide a rigorous ZFC-based formalization of **Self-Referential Mind Field (SRMF)**, **T⁶⁴**, and **Universe Factor**.
+- Reconstruct the four main YuanXian axioms (TCSC, FSC, STM, SRM) within an extended ZFC framework.
+- Deliver machine-verifiable proofs, especially relative consistency: `Con(ZFC) → Con(YXT)`.
+- Establish a solid, verifiable mathematical foundation for YuanXian Theory.
 
-## Files
+---
 
-- `paper/main.tex` — English LaTeX paper (main)
-- `paper/main-zh.tex` — Chinese LaTeX paper
-- `lean/*.lean` — Lean 4 formalization
+## Repository Structure
 
-## How to Compile
+ZFC-Extension/ ├── lean/                          # Lean 4 formalization (core) │   ├── ExtendedZFC.lean           # ZFC extensions and basic axioms │   ├── T64.lean                   # 64-dimensional torus and geometry │   ├── SRMF.lean                  # Self-Referential Mind Field │   ├── YuanXianUniverse.lean      # Full universe model │   ├── RelativeConsistency.lean   # Relative consistency proof (in progress) │   └── Constants.lean             # Physical constants & invariants ├── paper/ │   ├── main.tex                   # English LaTeX paper │   └── main-zh.tex                # Chinese LaTeX paper ├── lakefile.lean ├── lean-toolchain ├── README.md └── LICENSE
+---
+
+
+## Quick Start
+
+### Lean 4
 
 ```bash
+# Install elan (Lean version manager)
+curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh
+
+git clone https://github.com/YuanXian-Theory/ZFC-Extension.git
+cd ZFC-Extension
+
+lake exe cache get
+lake build
+
 cd paper
 xelatex main.tex
 bibtex main
 xelatex main.tex
 xelatex main.tex
 
-## Citation
-[@misc](https://x.com/misc){acharya2026zfc,
+Citation
+
+@misc{acharya2026zfc,
   author       = {Zhenyuan Acharya},
-  title        = {Ontological Extension Based on ZFC: Formal Foundations of the Self-Referential Mind Field and Reconstruction of YuanXian Axioms},
+  title        = {ZFC-Extension: Ontological Extension of ZFC for YuanXian Theory},
   year         = {2026},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.19908685}
+  month        = {5},
+  publisher    = {GitHub},
+  howpublished = {\url{https://github.com/YuanXian-Theory/ZFC-Extension}},
+  note         = {Lean 4 formalization}
 }
-
-
