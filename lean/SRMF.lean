@@ -1,19 +1,24 @@
-import .ExtendedZFC
+/-
+# SRMF.lean
 
-/-- Set-theoretic construction of the Self-Referential Mind Field -/
-structure SelfReferentialMindField where
-  /-- Underlying separable complex Hilbert space -/
-  H : Type u
-  [isHilbert : HilbertSpace ℂ H]
-  /-- Nonlinear self-referential iteration operator -/
-  F : H → H
-  /-- Primordial chaotic field Φ₀ -/
-  phi0 : H
-  /-- Φ₀ has maximum von Neumann entropy -/
-  entropy_max : entropy phi0 = ⊤
-  /-- Self-referential property: every element is a fixed point -/
-  self_referential : ∀ ψ : H, F ψ = ψ
+## Description
+Self-Referential Mind Field (SRMF) formalization.
+Implements the self-referential operator Ψ satisfying Ψ = F(Ψ) via Banach Fixed Point Theorem.
+-/
 
-/-- Our universe's self-referential mind field -/
-noncomputable def OurSRMF : SelfReferentialMindField := 
-  Classical.choice (by sorry)  -- constructed via TCSC
+import Mathlib.Analysis.NormedSpace.Basic
+import Mathlib.Topology.MetricSpace.BanachFixedPoint
+
+/-- Self-Referential Mind Field -/
+structure SRMF (M : Type*) [MetricSpace M] where
+  psi : M → M
+  contr : Contractive psi
+
+/-- Banach Fixed Point Theorem application -/
+theorem SRMF.has_unique_fixed_point {M : Type*} [CompleteSpace M] [MetricSpace M]
+    (F : SRMF M) : ∃! p : M, F.psi p = p := by
+  apply BanachFixedPoint.has_fixed_point
+  exact F.contr
+
+/-- Construction inside model -/
+def SRMF.construction_in (M : Type*) (T : T64) : SRMF M := sorry  -- TODO: concrete implementation
