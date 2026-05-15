@@ -50,3 +50,13 @@ Citation
   howpublished = {\url{https://github.com/YuanXian-Theory/ZFC-Extension}},
   note         = {Lean 4 formalization}
 }
+
+Contribution
+
+Contributions are welcome! Especially:
+•  Completing the relative consistency proof
+•  Adding more lemmas and examples
+•  Improving documentation and comments
+•  Numerical simulations / visualizations
+Contact: shelizi2284@qq.com
+
