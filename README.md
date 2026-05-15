@@ -16,9 +16,7 @@ Formalization of the Self-Referential Mind Field, 64-dimensional torus T⁶⁴, 
 ---
 
 ## Repository Structure
-
 ZFC-Extension/ ├── lean/                          # Lean 4 formalization (core) │   ├── ExtendedZFC.lean           # ZFC extensions and basic axioms │   ├── T64.lean                   # 64-dimensional torus and geometry │   ├── SRMF.lean                  # Self-Referential Mind Field │   ├── YuanXianUniverse.lean      # Full universe model │   ├── RelativeConsistency.lean   # Relative consistency proof (in progress) │   └── Constants.lean             # Physical constants & invariants ├── paper/ │   ├── main.tex                   # English LaTeX paper │   └── main-zh.tex                # Chinese LaTeX paper ├── lakefile.lean ├── lean-toolchain ├── README.md └── LICENSE
----
 
 
 ## Quick Start
