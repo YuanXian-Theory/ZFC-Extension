@@ -13,7 +13,8 @@ Formalization of the Self-Referential Mind Field, 64-dimensional torus T⁶⁴, 
    - Explicit transitive inner model via Reflection Principle (no large cardinals).
    - Proof that YXTT is a language-conservative extension of ZFC.
    - Relative consistency: `ZFC ⊢ Con(ZFC) → Con(YXTT)`.
-   - Full Chinese source: `paper/ZFC-Consistency-zh.tex`.
+   - **Chinese source**: `paper/ZFC-Consistency-zh.tex`
+   - **English source**: `paper/ZFC-Consistency-en.tex`
 
 ---
 
@@ -35,12 +36,12 @@ ZFC-Extension/
 │   ├── T64.lean                   # 64-dimensional torus and geometry
 │   ├── SRMF.lean                  # Self-Referential Mind Field
 │   ├── YuanXianUniverse.lean      # Full universe model
-│   ├── RelativeConsistency.lean   # Relative consistency + conservative extension (updated July 2026)
+│   ├── RelativeConsistency.lean   # Relative consistency + conservative extension (strengthened July 2026)
 │   ├── Constants.lean             # Physical constants & invariants
 │   └── RiemannHypothesis.lean     # Exploratory module
 ├── paper/
-│   ├── ZFC-Consistency-zh.tex     # Second paper (Chinese, July 2026) – transitive inner model
-│   └── (earlier papers may be added)
+│   ├── ZFC-Consistency-zh.tex     # Second paper (Chinese)
+│   └── ZFC-Consistency-en.tex     # Second paper (English)
 ├── lakefile.lean
 ├── lean-toolchain
 ├── README.md
@@ -64,14 +65,18 @@ lake exe cache get
 lake build
 ```
 
-### Compile the Chinese consistency paper
+### Compile the consistency papers
 
 ```bash
 cd paper
+
+# Chinese version
 xelatex ZFC-Consistency-zh.tex
-bibtex ZFC-Consistency-zh   # if needed
 xelatex ZFC-Consistency-zh.tex
-xelatex ZFC-Consistency-zh.tex
+
+# English version
+pdflatex ZFC-Consistency-en.tex
+pdflatex ZFC-Consistency-en.tex
 ```
 
 ---
@@ -91,6 +96,19 @@ All constructions stay inside pure ZFC (Reflection Principle, finite products of
 
 ---
 
+## Status of RelativeConsistency.lean (July 2026)
+
+- Framework & theorem statements: ✅ Complete
+- Explicit T⁶⁴ + compactness instances: ✅ Strengthened
+- Haar measure + simplified sr_operator: ✅ Present
+- Contractivity lemmas (simplified + full claim): ✅ Added
+- TransitiveModel structure + construction scaffolding: ✅ Improved
+- Reflection Principle existence statement: ✅ Present
+- Core theorems with detailed proof sketches: ✅ Present
+- Remaining `sorry`s: deeper measure-theoretic lemmas and formal satisfaction relation (planned 2026Q4)
+
+---
+
 ## Citation
 
 ```bibtex
@@ -101,7 +119,7 @@ All constructions stay inside pure ZFC (Reflection Principle, finite products of
   month        = {7},
   publisher    = {GitHub},
   howpublished = {\url{https://github.com/YuanXian-Theory/ZFC-Extension}},
-  note         = {Lean 4 formalization + Chinese paper}
+  note         = {Lean 4 formalization + Chinese & English papers}
 }
 ```
 
@@ -110,9 +128,8 @@ All constructions stay inside pure ZFC (Reflection Principle, finite products of
 ## Contribution
 
 Contributions are welcome, especially:
-- Completing the remaining `sorry`s in `RelativeConsistency.lean` (contractivity, Reflection Principle model, etc.)
+- Completing the remaining `sorry`s in `RelativeConsistency.lean`
 - Strengthening Mathlib4 set-theory support for the inner-model construction
-- Adding English translation of the second paper
 - Numerical simulations / visualizations
 
 **Contact**: shelizi2284@qq.com
